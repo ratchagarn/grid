@@ -32,7 +32,8 @@ module.exports = function(grunt) {
     
     stylus: {
       options: {
-        compress: false
+        compress: false,
+        banner: '<%= banner %>'
       },
       dist: {
         files: [{
@@ -42,39 +43,6 @@ module.exports = function(grunt) {
           dest: 'dist',
           ext: '.css'
         }]
-      }
-    },
-
-
-    /**
-     * ------------------------------------------------------------
-     * CSSlint (https://github.com/CSSLint/csslint/wiki)
-     * ------------------------------------------------------------
-     */
-
-    csslint: {
-      strict: {
-        options: {
-          "adjoining-classes": false,
-          "box-sizing": false,
-          "box-model": false,
-          "compatible-vendor-prefixes": false,
-          "floats": false,
-          "font-sizes": false,
-          "gradients": false,
-          "ids": false,
-          "important": false,
-          "known-properties": false,
-          "outline-none": false,
-          "qualified-headings": false,
-          "regex-selectors": false,
-          "shorthand": false,
-          "text-indent": false,
-          "unique-headings": false,
-          "universal-selector": false,
-          "unqualified-attributes": false
-        },
-        src: ['dist/grid.css']
       }
     },
 
@@ -91,8 +59,28 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['bower_components/normalize.css/normalize.css', 'dist/grid.css'],
-        dest: 'dist/grid.css',
+        dest: 'dist/grid-with-reset.css',
       },
+    },
+
+
+    /**
+     * ------------------------------------------------------------
+     * CSS min
+     * ------------------------------------------------------------
+     */
+    
+    cssmin: {
+      options: {
+        keepSpecialComments: 0,
+        banner: '<%= banner %>'
+      },
+      normal: {
+        files: {
+          'dist/grid.min.css': ['dist/grid.css'],
+          'dist/grid-with-reset.min.css': ['dist/grid-with-reset.css'],
+        }
+      }
     },
 
 
@@ -105,7 +93,7 @@ module.exports = function(grunt) {
     watch: {
       src: {
         files: 'src/grid.styl',
-        tasks: ['stylus', 'concat']
+        tasks: ['stylus']
       }
     }
 
@@ -116,8 +104,6 @@ module.exports = function(grunt) {
   // https://github.com/gruntjs/grunt-contrib-clean
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  // https://github.com/gruntjs/grunt-contrib-csslint
-  grunt.loadNpmTasks('grunt-contrib-csslint');
 
   // https://github.com/gruntjs/grunt-contrib-stylus
   grunt.loadNpmTasks('grunt-contrib-stylus');
@@ -128,9 +114,13 @@ module.exports = function(grunt) {
   // https://github.com/gruntjs/grunt-contrib-watch
   grunt.loadNpmTasks('grunt-contrib-watch');
 
+  // 
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+
 
 
   grunt.registerTask('default', ['clean', 'stylus']);
   grunt.registerTask('dev', ['default', 'watch']);
+  grunt.registerTask('dist', ['default', 'concat', 'cssmin']);
 
 };

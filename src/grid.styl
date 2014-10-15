@@ -1,9 +1,5 @@
 @import "nib"
 
-/**
- * Simple CSS grid
- */
-
 $grid_columns = 12
 $grid_gutter = 10px
 $grid_width = 100 / $grid_columns
@@ -62,10 +58,13 @@ for i in (1..$grid_columns - 1)
     float none
     width 100%
 
+  .col-offset
+    margin-left auto
+
   for i in (1..$grid_columns)
     .col-{i}
       @extend .col
 
   for i in (1..$grid_columns - 1)
     .col-offset-{i}
-      margin-left auto
+      @extend .col-offset
