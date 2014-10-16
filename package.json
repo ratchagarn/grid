@@ -1,6 +1,6 @@
 {
   "name": "grid",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Just simple CSS grid",
   "main": "Gruntfile.js",
   "dependencies": {

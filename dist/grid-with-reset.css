@@ -426,7 +426,7 @@ th {
   padding: 0;
 }
 /*!
- * Grid version 0.0.1
+ * Grid version 0.0.2
  * Copyright 2014-Preset
  * Author: Ratchagarn Naewbuntad
  * Licensed under MIT
@@ -455,31 +455,17 @@ th {
 .row:after {
   clear: both;
 }
-.row * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.col,
-.col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10,
-.col-11,
-.col-12 {
+[class*='col-'] {
   position: relative;
   float: left;
   min-height: 1px;
   padding-left: 10px;
   padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .col-1 {
   width: 8.333333333333334%;
@@ -550,40 +536,22 @@ th {
 .col-offset-11 {
   margin-left: 91.66666666666667%;
 }
+.col-center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media (min-width: 1200px) {
   .container {
     max-width: 1260px;
   }
 }
 @media (max-width: 768px) {
-  .col,
-  .col-1,
-  .col-2,
-  .col-3,
-  .col-4,
-  .col-5,
-  .col-6,
-  .col-7,
-  .col-8,
-  .col-9,
-  .col-10,
-  .col-11,
-  .col-12 {
+  [class*='col-'] {
     float: none;
     width: 100%;
   }
-  .col-offset,
-  .col-offset-1,
-  .col-offset-2,
-  .col-offset-3,
-  .col-offset-4,
-  .col-offset-5,
-  .col-offset-6,
-  .col-offset-7,
-  .col-offset-8,
-  .col-offset-9,
-  .col-offset-10,
-  .col-offset-11 {
+  [class*='col-offset-'] {
     margin-left: auto;
   }
 }
