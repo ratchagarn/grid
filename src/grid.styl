@@ -1,0 +1,61 @@
+@import "nib"
+
+$grid_columns = 12
+$grid_gutter = 10px
+$grid_width = 100 / $grid_columns
+
+
+.container
+  width 100%
+  margin-left auto
+  margin-right auto
+  padding-left $grid_gutter
+  padding-right $grid_gutter
+  box-sizing border-box
+
+
+.row
+  margin-left -($grid_gutter)
+  margin-right -($grid_gutter)
+  *zoom 1
+  clearfix()
+   
+
+[class*='col-']
+  position relative
+  float left
+  min-height 1px
+  padding-left $grid_gutter
+  padding-right $grid_gutter
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+  box-sizing border-box
+
+
+for i in (1..$grid_columns)
+  .col-{i}
+    width (i * $grid_width)%
+
+
+for i in (1..$grid_columns - 1)
+  .col-offset-{i}
+    margin-left (i * $grid_width)%
+
+
+.col-center
+  float none
+  margin-left auto
+  margin-right auto
+
+
+@media (min-width 1200px)
+  .container
+    max-width 1260px
+
+@media (max-width 768px)
+  [class*='col-']
+    float none
+    width 100%
+
+  [class*='col-offset-']
+    margin-left auto

@@ -1,0 +1,20 @@
+{
+  "name": "grid",
+  "version": "0.0.2",
+  "homepage": "https://github.com/ratchagarn/grid",
+  "authors": [
+    "Ratchagarn <ratchagarn@gmail.com>"
+  ],
+  "description": "Just simple CSS grid",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.2"
+  }
+}
