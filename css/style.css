@@ -6,11 +6,12 @@ body {
 
 a {
   color: #00C;
+  text-decoration: none;
 }
 
 a:hover {
   color: #A00;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 
@@ -67,4 +68,30 @@ a:hover {
 
 #header h1 {
   margin: 0;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ *
+ * Footer
+ *
+-* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#footer {
+  padding: 40px 0;
+  margin-top: 100px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  font-size: 12px;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#footer a:hover {
+  text-decoration: none; 
 }
